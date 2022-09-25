@@ -8,6 +8,7 @@ Admin users can add users delete users and VM,also they can resize the VM pool s
 To keep things simple system is uses simple authentication system of password authetication on  methods POST,DELETE and PATCH.
 All get mehods are unautheticated.
 
+----------------------------------------------------------------------------------------------------------------------
 ## Installtion and Running application.
 
 #### Install required packages
@@ -24,7 +25,7 @@ pip install -r requirements.txt
 
 #### import postman json
 
-
+----------------------------------------------------------------------------------------------------------------------
 
 ## Main api details in Sequence to run  the app
 
@@ -41,7 +42,7 @@ Create the database to persist information.
 ```http
   POST /user
 ```
-Create users for system.If its first user its marked as Admin and authentication is not required for first user.
+Creates users for system.If its first user its marked as Admin and authentication is not required for first user.
 from 2nd user onwards rest users are marked with role=user.For role=admin you need to explicitly mention it.
 Only user with Admin role can add users.
 
@@ -49,7 +50,7 @@ Only user with Admin role can add users.
 ```json
 {
     "name": "user1",
-    "email": "user1@gmail.com",
+    "email": "user1@email.com",
     "password": "user1"
 }
 ```
@@ -62,7 +63,7 @@ Only user with Admin role can add users.
         "password": "user1"
     },
     "name": "user2",
-    "email": "user2@gmail.com",
+    "email": "user2@email.com",
     "password": "user2"
 }
 ```
@@ -75,7 +76,7 @@ Only user with Admin role can add users.
         "password": "user1"
     },
     "name": "user2",
-    "email": "user2@gmail.com",
+    "email": "user2@email.com",
     "password": "user2",
 	"role": "admin"
 }
@@ -233,10 +234,87 @@ Admin user can update any other user.Regurlar user can only update his details.A
     },
     "id": 2,
     "name": "user3",
-    "email": "user3@gmail.com",
+    "email": "user3@email.com",
     "password": "user3"
 }
 ```
 
+#### Get VM details by status
+
+```http
+  GET /vmdetails/status/rUnning
+```
 
 
+#### Get VM details allocated to user by email id.
+
+```http
+  GET /vmdetails/maped_to/user2@email.com
+```
+
+#### Get VM details VM id.
+
+```http
+  GET /vmdetails/id/2
+```
+
+#### Get ALL VM details.
+
+```http
+  GET /vmdetails
+```
+
+#### Get VM Types.
+
+```http
+  GET /vmdetails/types/all
+```
+
+#### Get VM Details by type.
+
+```http
+  GET /vmdetails/type/small
+```
+
+#### Get all User Details by type.
+
+```http
+  GET /user
+```
+
+#### Get User Details by user id.
+
+```http
+  GET /user/id/1
+```
+
+#### Get User Details by email.
+
+```http
+  GET /user/email/user2@email.com
+```
+
+#### Get List of VM owned by user.
+
+```http
+  GET /checkout_vm/user/2
+```
+
+#### Get List of VM under maintenance.
+
+```http
+  GET /maintenance
+```
+
+
+#### Get VM resource pool size.
+
+```http
+  GET /vmpoolsize
+```
+
+#### Get VM resource pool size.
+
+```http
+  GET /vmpoolsize
+```
