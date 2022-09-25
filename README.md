@@ -38,7 +38,7 @@ cd src
 gunicorn app:app -b localhost:8443 &
 ```
 
-#### import postman json
+#### import postman json from  repo for better experience
 
 ----------------------------------------------------------------------------------------------------------------------
 
