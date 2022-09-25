@@ -12,16 +12,30 @@ All get mehods are unautheticated.
 ## Installtion and Running application.
 
 #### Install required packages
+```bash
 sudo apt-get install python-pip python-virtualenv
-
+```
 #### Create and activate a virtual environment
+```bash
 virtualenv .env
 source .env/bin/activate
+```
 
 #### Install Flask and other dependencies.
+```bash
 pip install Flask
 pip install -r requirements.txt
+```
 
+#### Install gunicorn
+```bash
+pip install gunicorn
+```
+
+#### Let’s start a Gunicorn process to serve your Flask app.
+```bash
+gunicorn app:app -b localhost:8443 &
+```
 
 #### import postman json
 
