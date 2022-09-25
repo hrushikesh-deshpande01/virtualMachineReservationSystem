@@ -1,4 +1,4 @@
-# virtual Machine Reservation System
+# Virtual Machine Reservation System
 Mimic of virtual machine reservation system
 
 ## Description 
