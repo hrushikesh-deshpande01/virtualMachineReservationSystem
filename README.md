@@ -1,5 +1,5 @@
 # virtualMachineReservationSystem
-Mimic virtual machine reservation system
+Mimic of virtual machine reservation system
 
 ## Description 
 A cloud vm pool reservation system miminc using flask,sqlalchemy and sqllite.
