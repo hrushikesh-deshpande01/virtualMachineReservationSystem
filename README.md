@@ -34,6 +34,7 @@ pip install gunicorn
 
 #### Let’s start a Gunicorn process to serve your Flask app.
 ```bash
+cd src
 gunicorn app:app -b localhost:8443 &
 ```
 
