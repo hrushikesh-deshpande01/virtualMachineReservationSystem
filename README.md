@@ -44,7 +44,7 @@ gunicorn app:app -b localhost:8443 &
 
 ## Main api details in Sequence to run  the app
 
-#### RESET DB OR CREATE IF NOT EXIST 
+#### create or reset database
 
 ```http
   GET /truncate_tables
@@ -52,7 +52,7 @@ gunicorn app:app -b localhost:8443 &
 Create the database to persist information.
 
 
-#### RESET DB OR CREATE IF NOT EXIST. 
+#### Create User
 
 ```http
   POST /user
