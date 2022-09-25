@@ -3,10 +3,10 @@ Mimic virtual machine reservation system
 
 ## Description 
 A cloud vm pool reservation system miminc using flask,sqlalchemy and sqllite.
-Users can checkout out VM as per need basis and checkin back to VM pool.
-Admin users can add users delete users and VM,also they can resize the VM pool size.
-To keep things simple system is uses simple authentication system of password authetication on  methods POST,DELETE and PATCH.
-All get mehods are unautheticated.
+Users can checkout VM as per need basis and checkin back to VM pool.
+Admin users can add users ,delete users and delete VM,also they can resize the VM pool size.
+To keep things simple, system uses simple authentication system using passwords for methods POST,DELETE and PATCH.
+All get mehods are unauthenticated.
 
 ----------------------------------------------------------------------------------------------------------------------
 ## Installtion and Running application.
@@ -57,9 +57,9 @@ Create the database to persist information.
 ```http
   POST /user
 ```
-Creates users for system.If its first user its marked as Admin and authentication is not required for first user.
-from 2nd user onwards rest users are marked with role=user.For role=admin you need to explicitly mention it.
-Only user with Admin role can add users.
+Creates users for system.If its first user user is marked as Admin and authentication is not required for first user.
+From 2nd user onwards all new users are marked with role=user by default.For Admin role you need to explicitly mention role=admin.
+Only user with admin role can add users.
 
 ##### Body for 1st  user:
 ```json
@@ -70,7 +70,7 @@ Only user with Admin role can add users.
 }
 ```
 
-##### Form second user onwards authentication is manddatory.
+##### Form second user onwards authentication is mandatory.
 ```json
 {
     "auth": {
@@ -83,7 +83,7 @@ Only user with Admin role can add users.
 }
 ```
 
-##### To mark the users as admin use below.
+##### To mark the users as admin use below *note role=admin.
 ```json
 {
     "auth": {
@@ -103,7 +103,7 @@ Only user with Admin role can add users.
   POST /create_resource_pool
 ```
 
-This post request creates vm pool of size mentioned by admin user.
+Creates vm resource pool of size provided by admin user.
 
 ```json
 {
@@ -121,7 +121,7 @@ This post request creates vm pool of size mentioned by admin user.
   POST /create_resource_pool
 ```
 
-This post request resizes vm pool to size mentioned by admin user.This can be helpfull and save cost.
+Resizes vm pool to size mentioned by admin user.This can be helpful to save cost.
 
 ```json
 {
@@ -207,7 +207,7 @@ Admin\User can get access to basic stats.
 ```http
   DELETE /user/id/2
 ```
-Admin user can delete any other user but not self.Authentication is required.
+Admin user can delete any other user but not self.authentication is required.
 
 ```json
 {
@@ -223,7 +223,7 @@ Admin user can delete any other user but not self.Authentication is required.
 ```http
   DELETE /vmdetails/id/5
 ```
-Admin user can delete any other VM.Authentication is required.
+Admin user can delete any other VM.authentication is required.
 
 ```json
 {
@@ -239,7 +239,7 @@ Admin user can delete any other VM.Authentication is required.
 ```http
   PATCH /user
 ```
-Admin user can update any other user.Regurlar user can only update his details.Authentication is required.
+Admin user can update any other user.Regurlar user can only update his details.authentication is required.
 
 ```json
 {
