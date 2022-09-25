@@ -177,9 +177,9 @@ User\Admin can check the vm back to pool by using VM"s id.
     },
     "vmid": 1
 }
+```
 
-
-#### Cleanup\maintenance activity.
+#### Cleanup or maintenance activity.
 
 ```http
   POST /maintenance
